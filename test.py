@@ -1,5 +1,6 @@
-# ABC 131 B問題
+# -*- coding: utf-8 -*-
 
+# ABC131B問題
 def test(n,l):
     n = list(range(l, l+n))
 
