@@ -14,6 +14,7 @@ def test131B(n,l):
 
 test131B(30,-50)
 
+# ABC132B問題
 def test132B(n,p):
     result = 0
     for i in range(0,n - 2):
