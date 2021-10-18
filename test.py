@@ -57,30 +57,20 @@ def find_max_dp(num_list, limit):
     return dp_table[list_len - 1][limit]
  
 list = [4,8,6]
-print(find_max_dp(list,10))
+#print(find_max_dp(list,10))
 
 def flog(n,h):
     dp = [0 for i in range(n)]
     
     for i in range(n):
-        print(dp)
         if i == 0:
             dp[i] == 0
         elif i == 1:
             dp[i] = abs(h[i] - h[i - 1])
-            print(dp[i])
         else:
              dp[i] = min(dp[i - 1] + abs(h[i] - h[i - 1]),dp[i - 2] + abs(h[i] - h[i - 2]))
-             print("i",i)
-             print(h)
-             print(h[i - 1])
-             print(abs(h[i] - h[i - 1]))
-             print(h[i - 1] + abs(h[i] - h[i - 1]))
-             print(h[i - 2])
-             print(abs(h[i] - h[i - 2]))
-             print(h[i - 2] + abs(h[i] - h[i - 2]))
     return dp[n - 1]
-print(flog(7,[2,9,4,5,1,6,10]))
+#print(flog(7,[2,9,4,5,1,6,10]))
 
 def abc081b(array,count = 0):
     odd_flag = True
@@ -97,7 +87,7 @@ def abc081b(array,count = 0):
         print(count)
         return array
 
-abc081b([8,8,8])
+#abc081b([8,8,8])
 
 def abc087b(x,a,b,c):
     result = 0
@@ -112,7 +102,7 @@ def abc087b(x,a,b,c):
 
     print(result)
 
-abc087b(100,2,2,2)
+#abc087b(100,2,2,2)
 
 def abc083b(n,a,b):
     total = 0
@@ -129,7 +119,7 @@ def calceachNum(n):
 
     return sum
 
-abc083b(20,2,5)
+#abc083b(20,2,5)
 
 def abc088b(n,a):
     boy = 0
@@ -140,15 +130,13 @@ def abc088b(n,a):
             girl += a[i]
         else:
             boy += a[i]
-    print(girl - boy)
 
 abc088b(3,[2,7,4])
 
 def abc085b(n,d):
     e = set(d)
-    print(len(e))
 
-abc085b(4,[6,6,8,9,2,2,9])
+#abc085b(4,[6,6,8,9,2,2,9])
     
 
 def abc085c(n,y):
@@ -162,4 +150,58 @@ def abc085c(n,y):
     
     print("(-1,-1,-1)")
 
-abc085c(9,45000)
+#abc085c(9,45000)
+
+def binarySearch(n,a,p):
+    left_index = 0
+    right_index = n - 1
+    while left_index < right_index:
+        middle_index = (left_index + right_index) // 2
+        middle_value = a[middle_index]
+        if p < middle_value:
+            right_index = middle_index - 1
+            continue
+        if p > middle_value:
+            left_index = middle_index + 1
+            continue
+        return p
+        
+    return -1
+
+print(binarySearch(4,[1,4,7,20],7))
+
+def binary_search(sorted_list, search_value: int) -> bool:
+    """
+    二分探索を実施し、検索対象の値がリスト内に含まれるかどうかの
+    真偽値を取得する。
+
+    Parameters
+    ----------
+    sorted_list : list of int
+        ソート済みの整数値を格納したリスト。
+    search_value : int
+        検索対象の値。
+
+    Returns
+    -------
+    value_exists : bool
+        値がリスト内に含まれるかどうか。
+    """
+    left_index: int = 0
+    right_index: int = len(sorted_list) - 1
+    while left_index <= right_index:
+        middle_index: int = (left_index + right_index) // 2
+        middle_value: int = sorted_list[middle_index]
+        print(left_index,right_index,middle_value)
+        if search_value < middle_value:
+            right_index = middle_index - 1
+            continue
+        if search_value > middle_value:
+            left_index = middle_index + 1
+            continue
+
+        return True
+
+    return False
+
+print(binary_search([1,4,7,20],7))
