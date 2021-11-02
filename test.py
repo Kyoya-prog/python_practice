@@ -9,6 +9,7 @@ def test131B(n,l):
     elif min(n) < 0 < max(n):
          n.remove(0)
     else:
+    
         n.remove(max(n))
     print(sum(n))
 
